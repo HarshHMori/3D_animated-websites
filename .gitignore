@@ -23,6 +23,9 @@
 # misc
 .DS_Store
 *.pem
+/.browser-readme/
+# Unused source archive exceeds GitHub's per-file upload limit.
+/public/back-frames.zip
 
 # debug
 npm-debug.log*

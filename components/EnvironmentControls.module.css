@@ -1,0 +1,1491 @@
+.section {
+  position: relative;
+  z-index: 20;
+  display: grid;
+  min-height: 744px;
+  place-items: center;
+  overflow: hidden;
+  padding: 34px 24px;
+  color: #10182d;
+  background:
+    radial-gradient(circle at 8% 42%, rgba(222, 215, 255, 0.72), transparent 34%),
+    radial-gradient(circle at 94% 42%, rgba(225, 221, 255, 0.75), transparent 32%),
+    #f0f1f8;
+  font-family: var(--font-sans), sans-serif;
+  isolation: isolate;
+  transition: background-color 850ms ease;
+}
+
+.section::before,
+.section::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  transition: opacity 900ms ease, background 900ms ease, filter 900ms ease;
+}
+
+.section::before {
+  z-index: -2;
+  opacity: 0;
+  background: url("/images/superbike-hero.jpg") center / cover no-repeat;
+  filter: saturate(0.55) hue-rotate(24deg) brightness(0.52) blur(1px);
+  transform: scale(1.025);
+}
+
+.section::after {
+  z-index: -1;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(113, 57, 143, 0.15), rgba(19, 9, 34, 0.72) 74%),
+    linear-gradient(90deg, rgba(29, 12, 45, 0.78), rgba(84, 39, 99, 0.48), rgba(24, 10, 42, 0.8));
+  backdrop-filter: blur(3px);
+}
+
+.panel {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: min(100%, 1540px);
+  grid-template-columns: minmax(318px, 358px) minmax(470px, 1fr) minmax(318px, 358px);
+  align-items: center;
+  gap: clamp(24px, 2.4vw, 42px);
+}
+
+.panel::before {
+  position: absolute;
+  z-index: -1;
+  inset: -60px;
+  content: "";
+  pointer-events: none;
+  opacity: 0;
+  filter: blur(78px);
+  transition: opacity 800ms ease, background 800ms ease;
+}
+
+.controlsColumn {
+  display: grid;
+  min-width: 0;
+  gap: 24px;
+}
+
+.card,
+.cardHeader h2,
+.cardHeader > span,
+.progressTrack,
+.progressValue,
+.temperatureSurface,
+.temperatureTrack,
+.temperatureValue,
+.dialReading span,
+.dialReading small,
+.presetLabels,
+.modeGrid button,
+.runtimeBar,
+.runtimeBar strong,
+.runtimeBar > button,
+.renderControls,
+.renderControls button,
+.modelCopy h2,
+.modelCopy h2 span,
+.modelCopy p,
+.searchField,
+.searchField input,
+.searchTools > button,
+.libraryCard,
+.playerCard,
+.libraryTabs button,
+.assetList > button,
+.assetDetails strong,
+.assetDetails small,
+.playerCard > strong,
+.playerControls button {
+  transition-duration: 700ms;
+  transition-property: color, background-color, border-color, box-shadow, fill, stroke, opacity;
+  transition-timing-function: ease;
+}
+
+.section[data-theme="night"] {
+  background-color: #14151e;
+}
+
+.section[data-theme="night"]::before {
+  opacity: 0.68;
+}
+
+.section[data-theme="night"]::after {
+  opacity: 0.52;
+}
+
+.section[data-theme="night"] .card,
+.section[data-theme="night"] .libraryCard,
+.section[data-theme="night"] .playerCard {
+  border-color: rgba(221, 210, 235, 0.22);
+  background: rgba(25, 25, 36, 0.64);
+  box-shadow: 0 20px 46px rgba(8, 3, 15, 0.34), inset 0 1px rgba(255, 255, 255, 0.11);
+  backdrop-filter: blur(20px);
+}
+
+.section[data-theme="night"] .cardHeader h2,
+.section[data-theme="night"] .runtimeBar strong,
+.section[data-theme="night"] .assetDetails strong,
+.section[data-theme="night"] .playerCard > strong {
+  color: #fff;
+}
+
+.section[data-theme="night"] .cardHeader > span {
+  color: #d9c3ef;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.section[data-theme="night"] .progressTrack {
+  stroke: rgba(222, 204, 240, 0.24);
+}
+
+.section[data-theme="night"] .progressValue {
+  stroke: #a766ff;
+  filter: drop-shadow(0 0 6px rgba(167, 102, 255, 0.58));
+}
+
+.section[data-theme="night"] .knob::before {
+  border-color: #c294ff;
+  background: #f8f1ff;
+  box-shadow: 0 0 12px rgba(177, 105, 255, 0.68);
+}
+
+.section[data-theme="night"] .temperatureSurface {
+  fill: rgba(63, 42, 76, 0.7);
+  stroke: rgba(228, 208, 245, 0.24);
+}
+
+.section[data-theme="night"] .temperatureTrack {
+  stroke: rgba(225, 203, 244, 0.42);
+}
+
+.section[data-theme="night"] .dialReading span {
+  color: #fff;
+}
+
+.section[data-theme="night"] .dialReading small,
+.section[data-theme="night"] .presetLabels,
+.section[data-theme="night"] .runtimeBar,
+.section[data-theme="night"] .assetDetails small,
+.section[data-theme="night"] .modelCopy p {
+  color: #bdaecb;
+}
+
+.section[data-theme="night"] .preset[aria-pressed="true"] {
+  box-shadow: 0 0 0 4px rgba(43, 24, 60, 0.9), 0 0 0 6px rgba(189, 122, 255, 0.72),
+    0 0 24px rgba(170, 92, 255, 0.5);
+}
+
+.section[data-theme="night"] .modeGrid button {
+  color: #d1c2df;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.section[data-theme="night"] .modeGrid .activeMode {
+  color: #fff;
+  background: #8b16e8;
+  box-shadow: 0 10px 24px rgba(132, 18, 224, 0.42), 0 0 20px rgba(168, 85, 247, 0.24);
+}
+
+.section[data-theme="night"] .runtimeStatus i {
+  background: #ad72ff;
+  box-shadow: 0 0 0 3px rgba(173, 114, 255, 0.12), 0 0 12px rgba(173, 114, 255, 0.55);
+}
+
+.section[data-theme="night"] .runtimeBar > button,
+.section[data-theme="night"] .renderControls,
+.section[data-theme="night"] .searchField,
+.section[data-theme="night"] .searchTools > button {
+  border-color: rgba(222, 193, 248, 0.25);
+  color: #d9c9e6;
+  background: rgba(31, 18, 46, 0.68);
+  box-shadow: 0 8px 22px rgba(8, 3, 15, 0.24);
+}
+
+.section[data-theme="night"] .renderControls button,
+.section[data-theme="night"] .playerControls button {
+  color: #bcaecb;
+}
+
+.section[data-theme="night"] .renderControls .activeRender,
+.section[data-theme="night"] .libraryTabs button[aria-selected="true"] {
+  color: #fff;
+}
+
+.section[data-theme="night"] .modelStage::before {
+  background: radial-gradient(ellipse, rgba(180, 119, 230, 0.28), transparent 68%);
+}
+
+.section[data-theme="night"] .modelPoster {
+  opacity: 0.42;
+  mix-blend-mode: screen;
+}
+
+.section[data-theme="night"] .hiddenPoster {
+  opacity: 0;
+}
+
+.section[data-theme="night"] .modelCopy h2 {
+  color: #cf9cff;
+  text-shadow: 0 0 30px rgba(175, 92, 255, 0.22);
+}
+
+.section[data-theme="night"] .modelCopy h2 span {
+  color: #fff;
+}
+
+.section[data-theme="night"] .searchField input {
+  color: #f5effa;
+}
+
+.section[data-theme="night"] .searchField input::placeholder {
+  color: #9b8ca8;
+}
+
+.section[data-theme="night"] .libraryTabs {
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+.section[data-theme="night"] .libraryTabs button {
+  color: #9f91ae;
+}
+
+.section[data-theme="night"] .assetList > button:hover {
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.section[data-theme="night"] .assetList > .activeAsset {
+  border-color: rgba(177, 112, 247, 0.7);
+  background: rgba(116, 67, 143, 0.32);
+  box-shadow: 0 0 24px rgba(158, 82, 223, 0.18);
+}
+
+.section[data-theme="night"] .pagination b {
+  background: #aa65f3;
+  box-shadow: 0 0 8px rgba(170, 101, 243, 0.6);
+}
+
+.section[data-theme="night"] .pagination i {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.section[data-theme="night"] .waveform i {
+  background: linear-gradient(#b777ff, #d3a3ff);
+}
+
+.section[data-theme="night"] .playerControls .playButton {
+  color: #fff;
+  background: #9b25ed;
+  box-shadow: 0 7px 18px rgba(143, 31, 218, 0.4);
+}
+
+/* The ambience dial moves through three cinematic lighting grades. */
+.section[data-tone="rose"] {
+  background-color: #1d131a;
+}
+
+.section[data-tone="rose"]::before {
+  filter: saturate(0.78) hue-rotate(304deg) brightness(0.7) blur(0.5px);
+}
+
+.section[data-tone="rose"]::after {
+  background:
+    radial-gradient(circle at 50% 43%, rgba(255, 73, 151, 0.1), rgba(25, 12, 20, 0.46) 72%),
+    linear-gradient(90deg, rgba(35, 15, 27, 0.5), rgba(91, 40, 66, 0.24), rgba(31, 13, 25, 0.52));
+}
+
+.section[data-tone="ember"] {
+  background-color: #1e1713;
+}
+
+.section[data-tone="ember"]::before {
+  filter: saturate(0.82) hue-rotate(350deg) sepia(0.08) brightness(0.7) blur(0.5px);
+}
+
+.section[data-tone="ember"]::after {
+  background:
+    radial-gradient(circle at 50% 43%, rgba(255, 112, 43, 0.1), rgba(29, 16, 11, 0.45) 72%),
+    linear-gradient(90deg, rgba(39, 19, 12, 0.5), rgba(100, 56, 35, 0.23), rgba(35, 16, 10, 0.52));
+}
+
+.section[data-tone="violet"] {
+  background-color: #16141d;
+}
+
+.section[data-tone="violet"]::before {
+  filter: saturate(0.72) hue-rotate(18deg) brightness(0.7) blur(0.5px);
+}
+
+.section[data-tone="rose"] .card,
+.section[data-tone="rose"] .libraryCard,
+.section[data-tone="rose"] .playerCard {
+  border-color: rgba(255, 190, 217, 0.22);
+  background: rgba(40, 27, 37, 0.62);
+}
+
+.section[data-tone="ember"] .card,
+.section[data-tone="ember"] .libraryCard,
+.section[data-tone="ember"] .playerCard {
+  border-color: rgba(255, 201, 164, 0.22);
+  background: rgba(42, 31, 26, 0.62);
+}
+
+.section[data-tone="rose"] .progressValue {
+  stroke: #f64f9a;
+  filter: drop-shadow(0 0 7px rgba(246, 79, 154, 0.68));
+}
+
+.section[data-tone="ember"] .progressValue {
+  stroke: #ff752c;
+  filter: drop-shadow(0 0 7px rgba(255, 117, 44, 0.65));
+}
+
+.section[data-tone="rose"] .knob::before {
+  border-color: #ff85bb;
+  box-shadow: 0 0 13px rgba(246, 79, 154, 0.65);
+}
+
+.section[data-tone="ember"] .knob::before {
+  border-color: #ff9b63;
+  box-shadow: 0 0 13px rgba(255, 117, 44, 0.64);
+}
+
+.section[data-tone="rose"] .modelCopy h2,
+.section[data-tone="rose"] .libraryTabs button[aria-selected="true"] {
+  color: #ff91c2;
+}
+
+.section[data-tone="ember"] .modelCopy h2,
+.section[data-tone="ember"] .libraryTabs button[aria-selected="true"] {
+  color: #ff9b63;
+}
+
+.section[data-tone="rose"] .modeGrid .activeMode,
+.section[data-tone="rose"] .playerControls .playButton {
+  background: #d72e79;
+  box-shadow: 0 9px 23px rgba(215, 46, 121, 0.38);
+}
+
+.section[data-tone="ember"] .modeGrid .activeMode,
+.section[data-tone="ember"] .playerControls .playButton {
+  background: #e85e1b;
+  box-shadow: 0 9px 23px rgba(232, 94, 27, 0.38);
+}
+
+.section[data-tone="rose"] .assetList > .activeAsset {
+  border-color: rgba(255, 102, 169, 0.7);
+  background: rgba(140, 46, 88, 0.32);
+}
+
+.section[data-tone="ember"] .assetList > .activeAsset {
+  border-color: rgba(255, 139, 76, 0.7);
+  background: rgba(145, 66, 27, 0.32);
+}
+
+.section[data-tone="rose"] .waveform i,
+.section[data-tone="rose"] .pagination b {
+  background: #f64f9a;
+}
+
+.section[data-tone="ember"] .waveform i,
+.section[data-tone="ember"] .pagination b {
+  background: #ff752c;
+}
+
+/* Tyre heat adds a second, softer grade without fighting the ambience color. */
+.section[data-heat="cool"] .panel::before {
+  opacity: 0.12;
+  background: radial-gradient(circle at 35% 74%, rgba(61, 182, 255, 0.52), transparent 36%);
+}
+
+.section[data-heat="track"] .panel::before {
+  opacity: 0.09;
+  background: radial-gradient(circle at 35% 74%, rgba(157, 77, 255, 0.46), transparent 36%);
+}
+
+.section[data-heat="hot"] .panel::before {
+  opacity: 0.14;
+  background: radial-gradient(circle at 35% 74%, rgba(255, 65, 71, 0.52), transparent 37%);
+}
+
+.section[data-heat="cool"] .temperatureValue {
+  stroke: #43b8ff;
+  filter: drop-shadow(0 0 5px rgba(67, 184, 255, 0.58));
+}
+
+.section[data-heat="track"] .temperatureValue {
+  stroke: #aa55ff;
+  filter: drop-shadow(0 0 5px rgba(170, 85, 255, 0.58));
+}
+
+.section[data-heat="hot"] .temperatureValue {
+  stroke: #ff4055;
+  filter: drop-shadow(0 0 5px rgba(255, 64, 85, 0.62));
+}
+
+.section[data-heat="cool"] .hotKnob .knob::before {
+  background: #43b8ff;
+  box-shadow: 0 4px 12px rgba(67, 184, 255, 0.42);
+}
+
+.section[data-heat="track"] .hotKnob .knob::before {
+  background: #aa55ff;
+  box-shadow: 0 4px 12px rgba(170, 85, 255, 0.42);
+}
+
+.section[data-heat="hot"] .hotKnob .knob::before {
+  background: #ff4055;
+  box-shadow: 0 4px 12px rgba(255, 64, 85, 0.45);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid rgba(232, 235, 244, 0.92);
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 14px 34px rgba(63, 69, 107, 0.055);
+}
+
+.ambienceCard {
+  min-height: 349px;
+  padding: 25px 25px 24px;
+}
+
+.temperatureCard {
+  min-height: 298px;
+  padding: 24px 25px 23px;
+}
+
+.cardHeader {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardHeader h2 {
+  margin: 0;
+  color: #111a35;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.cardHeader > span {
+  border-radius: 5px;
+  padding: 4px 9px 3px;
+  color: #96a0bd;
+  background: #f1f3f8;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 9px;
+  line-height: 1;
+  letter-spacing: 0.025em;
+}
+
+.dial {
+  position: relative;
+  display: grid;
+  place-items: center;
+  flex: none;
+}
+
+.progress {
+  width: 154px;
+  height: 154px;
+  margin-top: 31px;
+}
+
+.temperature {
+  width: 144px;
+  height: 144px;
+  margin-top: 25px;
+}
+
+.dialSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.progressTrack,
+.progressValue,
+.temperatureTrack,
+.temperatureValue {
+  fill: none;
+}
+
+.progressTrack {
+  stroke: #e1e6ee;
+  stroke-width: 14;
+}
+
+.progressValue {
+  transform: rotate(-90deg);
+  transform-origin: 70px 70px;
+  stroke: #ff7840;
+  stroke-linecap: round;
+  stroke-width: 14;
+  transition: stroke-dashoffset 60ms linear;
+}
+
+.temperatureSurface {
+  fill: #fbfcfe;
+  stroke: #edf0f6;
+  stroke-width: 1;
+}
+
+.temperatureTrack {
+  stroke: #dde4ef;
+  stroke-width: 1;
+  stroke-dasharray: 2 3;
+}
+
+.temperatureValue {
+  transform: rotate(-90deg);
+  transform-origin: 70px 70px;
+  stroke: #aa55ff;
+  stroke-linecap: round;
+  stroke-width: 3;
+  transition: stroke 700ms ease, stroke-dashoffset 60ms linear, filter 700ms ease;
+}
+
+.dialReading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+}
+
+.dialReading span {
+  color: #050b1d;
+  font-size: 29px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.055em;
+}
+
+.dialReading small {
+  margin-top: 9px;
+  color: #98a3c3;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 8px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0.14em;
+}
+
+.knobPosition {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  transition: transform 60ms linear;
+}
+
+.knob {
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+  touch-action: none;
+  cursor: grab;
+  border: 0;
+  border-radius: 999px;
+  outline: 0;
+  background: transparent;
+}
+
+.knob::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 21px;
+  height: 21px;
+  content: "";
+  transform: translate(-50%, -50%);
+  border: 2px solid #ff650f;
+  border-radius: 999px;
+  background: #fff;
+  box-shadow: 0 5px 12px rgba(39, 42, 58, 0.18);
+}
+
+.knob:active {
+  cursor: grabbing;
+}
+
+.knob:focus-visible {
+  box-shadow: none;
+}
+
+.knob:focus-visible::before {
+  box-shadow: 0 0 0 4px rgba(153, 20, 255, 0.19), 0 5px 12px rgba(39, 42, 58, 0.18);
+}
+
+.hotKnob .knob {
+  top: 16.5px;
+}
+
+.hotKnob .knob::before {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  background: #f32859;
+  box-shadow: 0 4px 10px rgba(243, 40, 89, 0.23);
+}
+
+.presetRow {
+  display: flex;
+  justify-content: center;
+  gap: 17px;
+  margin-top: 28px;
+}
+
+.preset {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  cursor: pointer;
+  border: 0;
+  border-radius: 999px;
+  outline: 0;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.preset:hover {
+  transform: translateY(-2px) scale(1.08);
+}
+
+.preset[aria-pressed="true"] {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px #fff, 0 0 0 6px rgba(255, 117, 44, 0.24);
+}
+
+.preset:focus-visible {
+  box-shadow: 0 0 0 4px #fff, 0 0 0 6px #8b5cf6;
+}
+
+.presetLabels {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 24px;
+  color: #98a3c3;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 8px;
+  line-height: 1;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.presetLabels span:first-child {
+  text-align: left;
+}
+
+.presetLabels span:nth-child(2) {
+  text-align: center;
+}
+
+.presetLabels span:last-child {
+  text-align: right;
+}
+
+.modeGrid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 11px;
+}
+
+.modeGrid button {
+  display: flex;
+  min-width: 0;
+  height: 59px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 17px;
+  color: #6f7d9e;
+  background: #f6f8fb;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 8px;
+  font-weight: 700;
+  outline: 0;
+  transition: color 180ms ease, background 180ms ease, box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.modeGrid button:hover {
+  color: #6410ba;
+  background: #f0edf8;
+  transform: translateY(-1px);
+}
+
+.modeGrid button:focus-visible {
+  box-shadow: 0 0 0 3px rgba(153, 20, 255, 0.2);
+}
+
+.modeGrid button svg {
+  width: 15px;
+  height: 15px;
+  stroke-width: 1.65;
+}
+
+.modeGrid .activeMode {
+  color: #fff;
+  background: #9806f5;
+  box-shadow: 0 9px 19px rgba(137, 15, 236, 0.25);
+}
+
+.modeGrid .activeMode:hover {
+  color: #fff;
+  background: #8f08e5;
+}
+
+.modelColumn {
+  display: flex;
+  min-width: 0;
+  min-height: 670px;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+}
+
+.runtimeBar {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: 38px;
+  color: #7f879d;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+
+.runtimeStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: start;
+  white-space: nowrap;
+}
+
+.runtimeStatus i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff742c;
+  box-shadow: 0 0 0 3px rgba(255, 116, 44, 0.1);
+}
+
+.runtimeBar strong {
+  color: #151c32;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.32em;
+}
+
+.runtimeBar > button {
+  display: inline-flex;
+  height: 31px;
+  align-items: center;
+  gap: 6px;
+  justify-self: end;
+  padding: 0 13px;
+  cursor: pointer;
+  border: 1px solid #e2e5ed;
+  border-radius: 999px;
+  color: #727a90;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 4px 10px rgba(55, 62, 89, 0.07);
+  font: inherit;
+  font-size: 8px;
+  letter-spacing: 0.03em;
+  transition: color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.runtimeBar > button:hover,
+.runtimeBar > button[aria-pressed="true"] {
+  color: #ec681d;
+  border-color: #ffd4bb;
+}
+
+.runtimeBar > button:hover {
+  transform: translateY(-1px);
+}
+
+.runtimeBar > button svg {
+  width: 12px;
+  height: 12px;
+}
+
+.modelStage {
+  position: relative;
+  display: grid;
+  width: 100%;
+  min-height: 460px;
+  place-items: center;
+  isolation: isolate;
+}
+
+.modelStage::before {
+  position: absolute;
+  z-index: -1;
+  width: min(88%, 590px);
+  height: 58%;
+  content: "";
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(214, 211, 239, 0.72), transparent 68%);
+  filter: blur(8px);
+}
+
+.modelGlow {
+  position: absolute;
+  right: 13%;
+  bottom: 18%;
+  left: 13%;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(69, 75, 101, 0.16);
+  filter: blur(22px);
+}
+
+.modelPoster {
+  position: absolute;
+  inset: 5% 2% 3%;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0.88;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse 54% 50% at center, #000 42%, transparent 84%);
+  transition: opacity 300ms ease;
+}
+
+.modelPoster img {
+  object-fit: cover;
+  object-position: center 58%;
+  filter: saturate(0.8) brightness(1.08) contrast(0.9);
+}
+
+.hiddenPoster {
+  opacity: 0;
+}
+
+.modelStage model-viewer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  transition: filter 240ms ease, opacity 240ms ease;
+  --progress-bar-color: transparent;
+}
+
+.modelStage .wireframeModel {
+  filter: grayscale(0.72) contrast(1.08) brightness(1.07);
+}
+
+.renderControls {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  min-height: 43px;
+  align-items: center;
+  gap: 13px;
+  margin-top: -31px;
+  padding: 0 16px;
+  border: 1px solid rgba(224, 227, 237, 0.94);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 9px 22px rgba(54, 60, 87, 0.1);
+  backdrop-filter: blur(14px);
+}
+
+.renderControls button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 0;
+  cursor: pointer;
+  border: 0;
+  color: #70798f;
+  background: transparent;
+  font-size: 10px;
+  font-weight: 600;
+  transition: color 180ms ease;
+}
+
+.renderControls button:hover,
+.renderControls .activeRender {
+  color: #131a2f;
+}
+
+.renderControls button svg {
+  width: 14px;
+  height: 14px;
+  stroke-width: 1.7;
+}
+
+.renderControls button:nth-of-type(2) svg {
+  color: #a44ad4;
+}
+
+.renderControls > span {
+  width: 1px;
+  height: 18px;
+  background: #e6e8ef;
+}
+
+.modelCopy {
+  width: min(100%, 680px);
+  margin-top: 25px;
+  text-align: center;
+}
+
+.modelCopy h2 {
+  margin: 0;
+  color: #ef5218;
+  font-size: clamp(42px, 4.4vw, 63px);
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: 0.17em;
+}
+
+.modelCopy h2 span {
+  color: #11182d;
+}
+
+.modelCopy p {
+  max-width: 660px;
+  margin: 16px auto 0;
+  color: #9299aa;
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+.libraryColumn {
+  display: grid;
+  min-width: 0;
+  gap: 20px;
+}
+
+.searchTools {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 42px 42px;
+  gap: 9px;
+  align-items: center;
+}
+
+.searchField {
+  display: flex;
+  min-width: 0;
+  height: 41px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 15px;
+  border: 1px solid #e5e7ef;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 7px 18px rgba(53, 61, 91, 0.04);
+}
+
+.searchField:focus-within {
+  border-color: #d7b3f4;
+  box-shadow: 0 0 0 3px rgba(152, 6, 245, 0.08);
+}
+
+.searchField input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  color: #25304a;
+  background: transparent;
+  font: inherit;
+  font-size: 10px;
+}
+
+.searchField input::placeholder {
+  color: #abb1c0;
+}
+
+.searchField svg {
+  width: 15px;
+  height: 15px;
+  color: #9ba2b3;
+}
+
+.searchTools > button {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  cursor: pointer;
+  border: 1px solid #e5e7ef;
+  border-radius: 15px;
+  color: #4b556c;
+  background: rgba(255, 255, 255, 0.9);
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.searchTools > button:hover {
+  color: #8f08e5;
+  transform: translateY(-1px);
+}
+
+.searchTools > button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.avatar {
+  position: relative;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(145deg, #172033, #f07434);
+  box-shadow: 0 5px 12px rgba(34, 39, 59, 0.15);
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.avatar i {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #12b981;
+}
+
+.libraryCard,
+.playerCard {
+  border: 1px solid rgba(229, 232, 241, 0.92);
+  background: rgba(255, 255, 255, 0.91);
+  box-shadow: 0 15px 36px rgba(60, 67, 98, 0.055);
+}
+
+.libraryCard {
+  min-height: 370px;
+  padding: 22px 24px 17px;
+  border-radius: 39px;
+}
+
+.libraryTabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f0f1f5;
+}
+
+.libraryTabs button {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  border: 0;
+  color: #9a9fb0;
+  background: transparent;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.libraryTabs button[aria-selected="true"] {
+  color: #22283a;
+}
+
+.libraryTabs button:first-child svg {
+  color: #d7732e;
+}
+
+.libraryTabs button:last-child svg {
+  color: #a84dd2;
+}
+
+.libraryTabs button svg {
+  width: 15px;
+  height: 15px;
+}
+
+.libraryTabs > span {
+  width: 1px;
+  height: 18px;
+  background: #e5e7ee;
+}
+
+.assetList {
+  display: grid;
+  min-height: 248px;
+  align-content: start;
+  gap: 6px;
+  padding-top: 10px;
+}
+
+.assetList > button {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 43px 1fr auto;
+  align-items: center;
+  gap: 10px;
+  min-height: 57px;
+  padding: 6px 12px 6px 7px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  color: #1c2336;
+  background: transparent;
+  text-align: left;
+  transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.assetList > button:hover {
+  background: #f8f8fb;
+}
+
+.assetList > .activeAsset {
+  border-color: #eab36e;
+  background: #fff;
+  box-shadow: 0 8px 18px rgba(104, 79, 42, 0.09);
+  transform: translateX(1px);
+}
+
+.assetList > button > i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ee7618;
+}
+
+.assetThumb {
+  display: grid;
+  width: 43px;
+  height: 43px;
+  place-items: center;
+  overflow: hidden;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 2px 7px rgba(38, 44, 67, 0.16);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.orange {
+  background: linear-gradient(145deg, #242d3c 5%, #fd7a2c 55%, #ffc27e);
+}
+
+.silver {
+  background: linear-gradient(145deg, #e6e9ef, #80899a 58%, #252c3b);
+}
+
+.blue {
+  background: linear-gradient(145deg, #dff5ff, #45a9d5 52%, #264468);
+}
+
+.violet {
+  background: radial-gradient(circle at 60% 36%, #9d59f1, #202945 56%, #090d17);
+}
+
+.assetDetails {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.assetDetails strong,
+.assetDetails small {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.assetDetails strong {
+  font-size: 11px;
+  font-weight: 750;
+}
+
+.assetDetails small {
+  color: #a1a7b7;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 8px;
+}
+
+.emptyState {
+  align-self: center;
+  margin: 0;
+  color: #a1a7b7;
+  font-size: 11px;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 7px;
+}
+
+.pagination b,
+.pagination i {
+  display: block;
+  height: 5px;
+  border-radius: 999px;
+}
+
+.pagination b {
+  width: 21px;
+  background: #344056;
+}
+
+.pagination i {
+  width: 5px;
+  background: #d8dbe4;
+}
+
+.playerCard {
+  display: flex;
+  min-height: 150px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 20px;
+  border-radius: 35px;
+}
+
+.playerCard > strong {
+  max-width: 100%;
+  overflow: hidden;
+  color: #202638;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.waveform {
+  display: flex;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  margin: 7px 0 5px;
+}
+
+.waveform i {
+  width: 3px;
+  max-height: 31px;
+  border-radius: 999px;
+  background: linear-gradient(#ea6d38, #f39d72);
+}
+
+.playerControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.playerControls button {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  cursor: pointer;
+  border: 0;
+  border-radius: 50%;
+  color: #5e6678;
+  background: transparent;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.playerControls button:hover {
+  color: #9510e7;
+  transform: scale(1.08);
+}
+
+.playerControls button svg {
+  width: 15px;
+  height: 15px;
+}
+
+.playerControls .playButton {
+  width: 42px;
+  height: 42px;
+  color: #fff;
+  background: #12192d;
+  box-shadow: 0 6px 13px rgba(20, 27, 48, 0.2);
+}
+
+.playerControls .playButton:hover {
+  color: #fff;
+  background: #9510e7;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1120px) {
+  .section {
+    padding-block: 46px;
+  }
+
+  .panel {
+    width: min(100%, 900px);
+    grid-template-columns: minmax(310px, 358px) minmax(430px, 1fr);
+  }
+
+  .libraryColumn {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 1fr) 310px;
+  }
+
+  .searchTools {
+    grid-column: 1 / -1;
+  }
+
+  .libraryCard,
+  .playerCard {
+    height: 100%;
+  }
+}
+
+@media (max-width: 780px) {
+  .section {
+    min-height: 0;
+    padding: 42px 18px;
+  }
+
+  .panel {
+    width: min(100%, 620px);
+    grid-template-columns: minmax(0, 1fr);
+    gap: 34px;
+  }
+
+  .controlsColumn,
+  .libraryColumn {
+    width: min(100%, 358px);
+    margin-inline: auto;
+  }
+
+  .controlsColumn {
+    gap: 20px;
+  }
+
+  .modelColumn {
+    min-height: 620px;
+  }
+
+  .modelStage {
+    min-height: 400px;
+  }
+
+  .libraryColumn {
+    grid-column: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .searchTools {
+    grid-column: auto;
+  }
+
+  .card {
+    border-radius: 30px;
+  }
+
+  .ambienceCard,
+  .temperatureCard {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+}
+
+@media (max-width: 420px) {
+  .section {
+    padding: 32px 16px 42px;
+  }
+
+  .runtimeBar {
+    font-size: 7px;
+  }
+
+  .runtimeBar strong {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+  }
+
+  .runtimeBar > button {
+    padding-inline: 9px;
+    font-size: 7px;
+  }
+
+  .modelColumn {
+    min-height: 530px;
+  }
+
+  .modelStage {
+    min-height: 325px;
+  }
+
+  .modelCopy h2 {
+    font-size: 38px;
+  }
+
+  .modelCopy p {
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressValue,
+  .knobPosition,
+  .preset,
+  .modeGrid button,
+  .modelStage model-viewer,
+  .assetList > button,
+  .playerControls button {
+    transition: none;
+  }
+}
